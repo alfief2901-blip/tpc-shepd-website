@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TPC.FTBL × SHEPD — football editing, PFPS, covers, clips, full games and editing tips.">
+  <title>TPC.FTBL × SHEPD — Ultimate Editing Service</title>
+  <style>
+    :root {
+      --bg:#07070b; --panel:#101017; --panel2:#15151f; --text:#f6f5ff;
+      --muted:#a9a6b8; --purple:#9b5cff; --purple2:#6d32ff; --cyan:#35e8ff;
+      --line:rgba(255,255,255,.09);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:
+      radial-gradient(circle at 80% 0%,rgba(125,55,255,.18),transparent 32%),
+      radial-gradient(circle at 0% 40%,rgba(53,232,255,.08),transparent 28%),var(--bg);color:var(--text);line-height:1.5}
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1120px,92%);margin:auto}
+    header{position:fixed;top:0;left:0;right:0;z-index:10;background:rgba(7,7,11,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:950;letter-spacing:-.04em;font-size:1.15rem}
+    .brand span{color:var(--purple)}
+    .navlinks{display:flex;gap:26px;color:#d9d6e4;font-size:.92rem}
+    .navlinks a:hover{color:white}
+    .navcta,.herocta{background:linear-gradient(135deg,var(--purple),var(--purple2));padding:11px 17px;border-radius:12px;font-weight:800;box-shadow:0 0 28px rgba(140,70,255,.28)}
+    .hero{min-height:92vh;padding:145px 0 70px;display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}
+    .eyebrow{display:inline-flex;padding:7px 11px;border:1px solid rgba(155,92,255,.35);background:rgba(155,92,255,.08);border-radius:999px;color:#cbb7ff;font-size:.78rem;font-weight:800;margin-bottom:20px}
+    h1{font-size:clamp(3.2rem,7vw,6.2rem);line-height:.88;letter-spacing:-.065em}
+    h1 .grad{background:linear-gradient(90deg,#fff,#b98cff 55%,#54eaff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{font-size:1.12rem;color:var(--muted);max-width:600px;margin:25px 0 30px}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .secondary{border:1px solid var(--line);background:rgba(255,255,255,.04);padding:11px 17px;border-radius:12px;font-weight:800}
+    .secondary:hover{background:rgba(255,255,255,.08)}
+    .heroart{position:relative}
+    .heroart img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:26px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.55);transform:rotate(1.2deg)}
+    .badge{position:absolute;bottom:22px;left:-18px;background:rgba(12,12,18,.88);border:1px solid var(--line);backdrop-filter:blur(14px);padding:14px 16px;border-radius:16px;font-weight:900;box-shadow:0 15px 45px #0008}
+    section{padding:95px 0}
+    .sectionhead{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:30px}
+    .kicker{color:#b78cff;font-weight:900;text-transform:uppercase;font-size:.76rem;letter-spacing:.14em}
+    h2{font-size:clamp(2rem,4vw,3.4rem);line-height:1;letter-spacing:-.05em;margin-top:8px}
+    .sectionhead p{color:var(--muted);max-width:470px}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:18px;padding:22px;min-height:180px}
+    .icon{font-size:1.65rem;margin-bottom:18px}
+    .card h3{margin-bottom:7px}.card p{color:var(--muted);font-size:.92rem}
+    .gallery{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+    .gallery .big{grid-row:span 2}
+    .shot{overflow:hidden;border-radius:20px;border:1px solid var(--line);background:#111}
+    .shot img{width:100%;height:100%;display:block;object-fit:cover;transition:.5s}
+    .shot:hover img{transform:scale(1.04)}
+    .big{min-height:650px}.small{min-height:318px}
+    .process{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .step{padding:25px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
+    .num{color:var(--purple);font-weight:950;font-size:.8rem;margin-bottom:14px}
+    .step p{color:var(--muted);margin-top:8px}
+    .cta{padding:65px 30px;border-radius:28px;border:1px solid rgba(155,92,255,.3);background:
+      radial-gradient(circle at 80% 20%,rgba(155,92,255,.25),transparent 35%),
+      linear-gradient(135deg,#12101d,#0d0d13);text-align:center}
+    .cta p{color:var(--muted);max-width:600px;margin:13px auto 25px}
+    footer{padding:35px 0 50px;color:#858190;font-size:.86rem;border-top:1px solid var(--line)}
+    .footerin{display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:850px){
+      .navlinks{display:none}.hero{grid-template-columns:1fr;padding-top:125px}.heroart{max-width:600px;margin:auto}
+      .cards{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:1fr}.big{min-height:500px}
+      .process{grid-template-columns:1fr}.sectionhead{display:block}.sectionhead p{margin-top:14px}
+    }
+    @media(max-width:520px){.cards{grid-template-columns:1fr}.hero{min-height:auto}.big{min-height:420px}.small{min-height:250px}h1{font-size:3.25rem}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#">TPC<span>.FTBL</span> × SHEPD</a>
+      <div class="navlinks"><a href="#services">Services</a><a href="#work">Work</a><a href="#process">How it works</a></div>
+      <a class="navcta" href="https://t.me/pfpservicetpcftblshepdteasers" target="_blank" rel="noopener">Telegram ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div>
+      <div class="eyebrow">⚡ FOOTBALL EDITING • PFPS • COVERS • CLIPS</div>
+      <h1>MAKE YOUR<br><span class="grad">PROFILE HIT</span><br>DIFFERENT.</h1>
+      <p class="lead">TPC.FTBL × SHEPD brings high-energy football edits, profile pictures, covers, clips, full-game content and editing tips — all in one place.</p>
+      <div class="buttons">
+        <a class="herocta" href="https://t.me/pfpservicetpcftblshepdteasers" target="_blank" rel="noopener">Join the Telegram →</a>
+        <a class="secondary" href="#work">View our work</a>
+      </div>
+    </div>
+    <div class="heroart">
+      <img src="assets/work-1.jpg" alt="TPC.FTBL × SHEPD football edit">
+      <div class="badge">★ 50 STARS &nbsp; / &nbsp; ULTIMATE SERVICE</div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sectionhead">
+        <div><div class="kicker">What we do</div><h2>Built for football editors.</h2></div>
+        <p>Whether you need a new look or want better footage for your next edit, we've got you covered.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="icon">🎨</div><h3>PFPS</h3><p>Custom football profile pictures made to stand out on Telegram and socials.</p></article>
+        <article class="card"><div class="icon">🖼️</div><h3>Covers</h3><p>Hard-hitting banners and covers with a strong editor aesthetic.</p></article>
+        <article class="card"><div class="icon">🎬</div><h3>Clips</h3><p>Football clips ready for your next edit, post or highlight project.</p></article>
+        <article class="card"><div class="icon">⚽</div><h3>Full Games</h3><p>Full-match content and useful footage for editors who need more.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sectionhead">
+        <div><div class="kicker">Selected work</div><h2>See the style.</h2></div>
+        <p>Real examples from the TPC.FTBL × SHEPD creative style.</p>
+      </div>
+      <div class="gallery">
+        <div class="shot big"><img src="assets/work-1.jpg" alt="Football poster edit"></div>
+        <div class="shot small"><img src="assets/work-2.jpg" alt="Football player edit"></div>
+        <div class="shot small"><img src="assets/work-3.jpg" alt="Football graphic edit"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="sectionhead">
+        <div><div class="kicker">Simple process</div><h2>Get what you need.</h2></div>
+        <p>Everything starts in Telegram. Tell us what you're looking for and we'll take it from there.</p>
+      </div>
+      <div class="process">
+        <div class="step"><div class="num">01 — JOIN</div><h3>Enter the Telegram</h3><p>Hit the Telegram button and check out the service, teasers and available content.</p></div>
+        <div class="step"><div class="num">02 — CHOOSE</div><h3>Pick your service</h3><p>PFPS, covers, clips, full games, tips or another editing request.</p></div>
+        <div class="step"><div class="num">03 — CREATE</div><h3>Level up your edits</h3><p>Get your content and put it straight into your next football edit.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="cta">
+      <div class="kicker">Ready?</div>
+      <h2>JOIN THE EDITOR COMMUNITY.</h2>
+      <p>Follow TPC.FTBL × SHEPD on Telegram for services, teasers, clips, full games and more.</p>
+      <a class="herocta" href="https://t.me/pfpservicetpcftblshepdteasers" target="_blank" rel="noopener">Open Telegram Channel ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footerin">
+    <div>© 2026 TPC.FTBL × SHEPD</div>
+    <div>Football edits. Better content. ⚡</div>
+  </div>
+</footer>
+</body>
+</html>
